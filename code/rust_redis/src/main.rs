@@ -160,6 +160,7 @@ async fn worker(consumer: StreamConsumer, mut connect_redis: Client) {
         match consumer.recv().await {
             Err(e) => warn!("Kafka error: {}", e),
             Ok(m) => {
+                // Ловим что летит из очереди
                 let payload = match m.payload_view::<str>() {
                     None => "",
                     Some(Ok(s)) => {
@@ -172,9 +173,11 @@ async fn worker(consumer: StreamConsumer, mut connect_redis: Client) {
                     }
                 };
                 let cdc_struct: Answer = serde_json::from_str(payload).unwrap();
+                // Берем необходимые строки из структуры
                 let did = cdc_struct.payload.after.did.as_str();
                 let billsec = cdc_struct.payload.after.billsec;
                 let context = cdc_struct.payload.after.dcontext.as_str();
+                // Пишем в redis
                 connect_redis.hset(context, did, billsec).unwrap();
                 consumer.commit_message(&m, CommitMode::Async).unwrap();
             }
@@ -192,8 +195,10 @@ async fn main() {
             info!("Logger init");
         }
     };
+    // Инитем redis
     let mut connect_redis = simple_redis::create("redis://host-of-redis:6379/").unwrap();
 
+    // Инитем kafka
     let consumer_redpanda: StreamConsumer = ClientConfig::new()
         .set("bootstrap.servers", "host-of-redpanda:9092")
         .set("group.id", "mysql-cdr")
@@ -202,6 +207,7 @@ async fn main() {
         .create()
         .expect("Consumer creation failed");
 
-    consumer_redpanda.subscribe(&vec!["mysql-cdr.asteriskcdrdb.bla-bla".as_ref()]).expect("Can't subscribe to specified topics");
+    // Цепояем топик
+    consumer_redpanda.subscribe(&vec!["mysql-cdr.asteriskcdrdb.bal-bal".as_ref()]).expect("Can't subscribe to specified topics");
     worker(consumer_redpanda, connect_redis).await;
 }

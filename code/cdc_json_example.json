@@ -1,0 +1,474 @@
+{
+  "schema": {
+    "type": "struct",
+    "fields": [
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "string",
+            "optional": false,
+            "name": "io.debezium.time.ZonedTimestamp",
+            "version": 1,
+            "default": "1970-01-01T00:00:00Z",
+            "field": "calldate"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "clid"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "src"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dst"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dcontext"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "channel"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dstchannel"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "lastapp"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "lastdata"
+          },
+          {
+            "type": "int32",
+            "optional": false,
+            "default": 0,
+            "field": "duration"
+          },
+          {
+            "type": "int32",
+            "optional": false,
+            "default": 0,
+            "field": "billsec"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "disposition"
+          },
+          {
+            "type": "int32",
+            "optional": false,
+            "default": 0,
+            "field": "amaflags"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "accountcode"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "uniqueid"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "userfield"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "did"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "recordingfile"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "cnum"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "cnam"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "outbound_cnum"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "outbound_cnam"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dst_cnam"
+          }
+        ],
+        "optional": true,
+        "name": "mysql_cdr.asteriskcdrdb.alahd.Value",
+        "field": "before"
+      },
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "string",
+            "optional": false,
+            "name": "io.debezium.time.ZonedTimestamp",
+            "version": 1,
+            "default": "1970-01-01T00:00:00Z",
+            "field": "calldate"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "clid"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "src"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dst"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dcontext"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "channel"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dstchannel"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "lastapp"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "lastdata"
+          },
+          {
+            "type": "int32",
+            "optional": false,
+            "default": 0,
+            "field": "duration"
+          },
+          {
+            "type": "int32",
+            "optional": false,
+            "default": 0,
+            "field": "billsec"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "disposition"
+          },
+          {
+            "type": "int32",
+            "optional": false,
+            "default": 0,
+            "field": "amaflags"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "accountcode"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "uniqueid"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "userfield"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "did"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "recordingfile"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "cnum"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "cnam"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "outbound_cnum"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "outbound_cnam"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "default": "",
+            "field": "dst_cnam"
+          }
+        ],
+        "optional": true,
+        "name": "mysql_cdr.asteriskcdrdb.alahd.Value",
+        "field": "after"
+      },
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "string",
+            "optional": false,
+            "field": "version"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "field": "connector"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "field": "name"
+          },
+          {
+            "type": "int64",
+            "optional": false,
+            "field": "ts_ms"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "name": "io.debezium.data.Enum",
+            "version": 1,
+            "parameters": {
+              "allowed": "true,last,false"
+            },
+            "default": "false",
+            "field": "snapshot"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "field": "db"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "sequence"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "table"
+          },
+          {
+            "type": "int64",
+            "optional": false,
+            "field": "server_id"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "gtid"
+          },
+          {
+            "type": "string",
+            "optional": false,
+            "field": "file"
+          },
+          {
+            "type": "int64",
+            "optional": false,
+            "field": "pos"
+          },
+          {
+            "type": "int32",
+            "optional": false,
+            "field": "row"
+          },
+          {
+            "type": "int64",
+            "optional": true,
+            "field": "thread"
+          },
+          {
+            "type": "string",
+            "optional": true,
+            "field": "query"
+          }
+        ],
+        "optional": false,
+        "name": "io.debezium.connector.mysql.Source",
+        "field": "source"
+      },
+      {
+        "type": "string",
+        "optional": false,
+        "field": "op"
+      },
+      {
+        "type": "int64",
+        "optional": true,
+        "field": "ts_ms"
+      },
+      {
+        "type": "struct",
+        "fields": [
+          {
+            "type": "string",
+            "optional": false,
+            "field": "id"
+          },
+          {
+            "type": "int64",
+            "optional": false,
+            "field": "total_order"
+          },
+          {
+            "type": "int64",
+            "optional": false,
+            "field": "data_collection_order"
+          }
+        ],
+        "optional": true,
+        "field": "transaction"
+      }
+    ],
+    "optional": false,
+    "name": "mysql_cdr.asteriskcdrdb.bla-bla.Envelope"
+  },
+  "payload": {
+    "before": null,
+    "after": {
+      "calldate": "2022-10-02T05:33:57Z",
+      "clid": "\"+74956006594\" <+74996131533>",
+      "src": "+74996131533",
+      "dst": "s",
+      "dcontext": "app-announcement-6",
+      "channel": "PJSIP/Some-DC-trunk-00021422",
+      "dstchannel": "",
+      "lastapp": "Wait",
+      "lastdata": "1",
+      "duration": 0,
+      "billsec": 0,
+      "disposition": "ANSWERED",
+      "amaflags": 3,
+      "accountcode": "",
+      "uniqueid": "1664688837.139489",
+      "userfield": "",
+      "did": "+74956006594",
+      "recordingfile": "",
+      "cnum": "",
+      "cnam": "",
+      "outbound_cnum": "",
+      "outbound_cnam": "",
+      "dst_cnam": ""
+    },
+    "source": {
+      "version": "1.7.0.Final",
+      "connector": "mysql",
+      "name": "mysql-cdr",
+      "ts_ms": 1664688838000,
+      "snapshot": "false",
+      "db": "asteriskcdrdb",
+      "sequence": null,
+      "table": "alahd",
+      "server_id": 63753,
+      "gtid": "5192480d-108a-11ec-b071-9efddb0124ac:9477169",
+      "file": "mysql-bin.000007",
+      "pos": 777887376,
+      "row": 0,
+      "thread": null,
+      "query": null
+    },
+    "op": "c",
+    "ts_ms": 1664688838310,
+    "transaction": null
+  }
+}
