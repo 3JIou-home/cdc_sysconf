@@ -207,7 +207,7 @@ async fn main() {
         .create()
         .expect("Consumer creation failed");
 
-    // Цепояем топик
+    // Цепляем топик
     consumer_redpanda.subscribe(&vec!["mysql-cdr.asteriskcdrdb.bal-bal".as_ref()]).expect("Can't subscribe to specified topics");
     worker(consumer_redpanda, connect_redis).await;
 }
