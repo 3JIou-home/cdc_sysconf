@@ -1,10 +1,12 @@
 use rdkafka::consumer::stream_consumer::StreamConsumer;
 use rdkafka::consumer::{CommitMode, Consumer};
 use rdkafka::{ClientConfig, Message};
-use std::boxed::Box;
 use rdkafka::config::RDKafkaLogLevel;
+use simple_redis;
+use std::boxed::Box;
 use log::{error, info, warn};
 use serde::{Deserialize, Serialize};
+use simple_redis::client::Client;
 
 #[derive(Serialize, Deserialize)]
 pub struct Answer {
@@ -153,7 +155,7 @@ pub struct Source {
     query: Option<serde_json::Value>,
 }
 
-async fn temp(consumer: StreamConsumer) {
+async fn worker(consumer: StreamConsumer, mut connect_redis: Client) {
     loop {
         match consumer.recv().await {
             Err(e) => warn!("Kafka error: {}", e),
@@ -169,10 +171,11 @@ async fn temp(consumer: StreamConsumer) {
                         ""
                     }
                 };
-                info!("key: '{:?}', payload: '{}', topic: {}, partition: {}, offset: {}, timestamp: {:?}",
-                      m.key(), payload, m.topic(), m.partition(), m.offset(), m.timestamp());
-                let temp: Answer = serde_json::from_str(payload).unwrap();
-                // TODO: add redis
+                let cdc_struct: Answer = serde_json::from_str(payload).unwrap();
+                let did = cdc_struct.payload.after.did.as_str();
+                let billsec = cdc_struct.payload.after.billsec;
+                let context = cdc_struct.payload.after.dcontext.as_str();
+                connect_redis.hset(context, did, billsec).unwrap();
                 consumer.commit_message(&m, CommitMode::Async).unwrap();
             }
         };
@@ -189,14 +192,16 @@ async fn main() {
             info!("Logger init");
         }
     };
-    let consumer: StreamConsumer = ClientConfig::new()
-        .set("bootstrap.servers", "common-rp1.alahd.kz.test.bash.kz:9092")
+    let mut connect_redis = simple_redis::create("redis://host-of-redis:6379/").unwrap();
+
+    let consumer_redpanda: StreamConsumer = ClientConfig::new()
+        .set("bootstrap.servers", "host-of-redpanda:9092")
         .set("group.id", "mysql-cdr")
         .set("enable.partition.eof", "false")
         .set_log_level(RDKafkaLogLevel::Debug)
         .create()
         .expect("Consumer creation failed");
 
-    consumer.subscribe(&vec!["mysql-cdr.asteriskcdrdb.alahd".as_ref()]).expect("Can't subscribe to specified topics");
-    temp(consumer).await;
+    consumer_redpanda.subscribe(&vec!["mysql-cdr.asteriskcdrdb.bla-bla".as_ref()]).expect("Can't subscribe to specified topics");
+    worker(consumer_redpanda, connect_redis).await;
 }
