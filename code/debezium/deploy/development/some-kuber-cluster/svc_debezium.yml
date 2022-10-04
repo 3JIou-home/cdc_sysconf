@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: debezium-kowl
+  namespace: monitoring
+  labels:
+    org.service.project: common
+    org.service.name: debezium-cdc
+    org.service.entity: default
+    org.service.environment: testing
+spec:
+  type: LoadBalancer
+  ports:
+    - name: ui
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+    - name: debezium
+      port: 8083
+      targetPort: 8083
+      protocol: TCP
+  selector:
+    org.service.project: common
+    org.service.name: debezium-cdc
+    org.service.entity: default
+    org.service.environment: testing

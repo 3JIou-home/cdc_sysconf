@@ -19,5 +19,5 @@ RUN chown -R kafka: ./debezium-connector-scylladb &&\
     chown -R kafka: ../etc
 
 # Metadata
-LABEL org.kolesa-team.image.maintainer="Vlassov Dmitriy <vlassov@kolesa.kz>" \
-      org.kolesa-team.image.description="Debezium with scylladb-cdc connector."
+LABEL org.kolesa-team.image.maintainer="Vlassov Dmitriy <vlassov@vlassov.pw>" \
+      org.kolesa-team.image.description="Debezium example scylladb-cdc connector for sysconf 2022."

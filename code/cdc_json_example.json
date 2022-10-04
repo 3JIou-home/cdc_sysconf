@@ -147,7 +147,7 @@
           }
         ],
         "optional": true,
-        "name": "mysql_cdr.asteriskcdrdb.alahd.Value",
+        "name": "mysql_cdr.asteriskcdrdb.bla-bla.Value",
         "field": "before"
       },
       {
