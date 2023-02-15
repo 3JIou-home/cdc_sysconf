@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/confluentinc/confluent-kafka-go v1.7.0
-	github.com/prometheus/client_golang v1.11.0
+	github.com/prometheus/client_golang v1.11.1
 )
 
 require (
